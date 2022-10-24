@@ -1,0 +1,21 @@
+{
+    "Login" : "Logowanie",
+    "Name" : "Login",
+    "Register" : "Rejestracja",
+    "Email Address" : "E-mail",
+    "Password" : "Hasło",
+    "Confirm Password" : "Powtórz hasło",
+    "Remember Me" : "Zapamiętaj mnie",
+    "Forgot Your Password?" : "Przypomnij hasło",
+    "Reset Password" : "Zmień hasło",
+    "Send Password Reset Link" : "Wyśllij link do zmiany hasła",
+    "Classifields" : "Tablica ogłoszeń",
+    
+    "Title" : "Tytuł",
+    "Description" : "Opis",
+    "Category" : "Kategoria",
+    "Number of advertisements" : "Liczba ogłoszeń",
+    "Add Category" : "Dodaj Kategorię",
+    "Add Classifield" : "Dodaj ogłoszenie",
+    "Add Category" : "Dodaj kategorię"
+}
