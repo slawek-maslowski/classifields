@@ -12,10 +12,14 @@
     "Classifields" : "Tablica ogłoszeń",
     
     "Title" : "Tytuł",
-    "Description" : "Opis",
-    "Category" : "Kategoria",
-    "Number of advertisements" : "Liczba ogłoszeń",
+    "Category Name" : "Nazwa kategorii",
+    "Category Description" : "Opis kategorii",
     "Add Category" : "Dodaj Kategorię",
+    "Edit Category" : "Edytujesz kategorię",
+    "Category" : "Kategoria",
+    "Change" : "Zmień",
+    "Action" : "Akcja",
+    "Number of advertisements" : "Liczba ogłoszeń",
     "Add Classifield" : "Dodaj ogłoszenie",
     "Add Category" : "Dodaj kategorię"
 }
