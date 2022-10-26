@@ -28,8 +28,8 @@
                 </ul>
             @else
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('category.create') }}">{{ __('Add Category') }}</a>
+                    <li>
+                        <a class="nav-link" href="{{ route('classifield.create') }}">{{ __('Add Classifield') }}</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
@@ -37,8 +37,8 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @can('isAdmin')
-                            <li>
-                                <a class="dropdown-item" href="{{ route('classifield.create') }}">{{ __('Add Classifield') }}</a>
+                            <li class="nav-item">
+                                <a class="dropdown-item" href="{{ route('category.create') }}">{{ __('Add Category') }}</a>
                             </li>
                             @endcan
                             <li>

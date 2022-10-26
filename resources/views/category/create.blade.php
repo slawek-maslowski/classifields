@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="form-outline mb-4">
-                    <input type="text" id="description" name="description" class="form-control" />
+                    <textarea type="text" id="description" name="description" class="form-control" rows="5" /></textarea>
                     <label class="form-label" for="description">{{ __('Category Description') }}</label>
                 </div>
 

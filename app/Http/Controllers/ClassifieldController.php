@@ -25,7 +25,7 @@ class ClassifieldController extends Controller
      */
     public function create()
     {
-        //
+        return view('classifield.create');
     }
 
     /**
@@ -36,7 +36,10 @@ class ClassifieldController extends Controller
      */
     public function store(StoreClassifieldRequest $request)
     {
-        //
+        $classifield = new Classifield($request->all());
+        $classifield->save();
+
+        return redirect()->route('home');
     }
 
     /**
@@ -58,7 +61,7 @@ class ClassifieldController extends Controller
      */
     public function edit(Classifield $classifield)
     {
-        //
+        return view('classifield.edit', ['classifield' => $classifield]);
     }
 
     /**
@@ -70,7 +73,10 @@ class ClassifieldController extends Controller
      */
     public function update(UpdateClassifieldRequest $request, Classifield $classifield)
     {
-        //
+        $classifield->fill($request->all());
+        $classifield->save();
+
+        return redirect()->route('home');
     }
 
     /**
@@ -81,6 +87,8 @@ class ClassifieldController extends Controller
      */
     public function destroy(Classifield $classifield)
     {
-        //
+        $classifield->delete();
+
+        return redirect()->route('home');
     }
 }

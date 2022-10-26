@@ -10,6 +10,7 @@
     "Reset Password" : "Zmień hasło",
     "Send Password Reset Link" : "Wyśllij link do zmiany hasła",
     "Classifields" : "Tablica ogłoszeń",
+    "Enter" : "Wejdź",
     
     "Title" : "Tytuł",
     "Category Name" : "Nazwa kategorii",
@@ -21,5 +22,9 @@
     "Action" : "Akcja",
     "Number of advertisements" : "Liczba ogłoszeń",
     "Add Classifield" : "Dodaj ogłoszenie",
-    "Add Category" : "Dodaj kategorię"
+    "Add Category" : "Dodaj kategorię",
+
+    "Classifield Name" : "Tytuł ogłoszenia",
+    "Classifield Description" : "Treść ogłoszenia",
+    "Edit Classifield" : "Edytujesz ogłoszenie"
 }
