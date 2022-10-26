@@ -27,9 +27,10 @@ Route::get('/locale/{lang}', function ($lang) {
 
 Route::middleware('auth')->group(function() {
 	Route::get('/ogloszenie/dodaj', [ClassifieldController::class, 'create'])->name('classifield.create');
-	Route::get('/katekoria/dodaj', [CategoryController::class, 'create'])->name('category.create');
-	Route::post('/kategoria', [CategoryController::class, 'store'])->name('category.store');
-	Route::get('/kategoria/edytuj/{category}', [CategoryController::class, 'edit'])->name('category.edit');
-	Route::post('kategoria/{category}', [CategoryController::class, 'update'])->name('category.update');
-	Route::delete('/kategoria/usun/{category}', [CategoryController::class, 'destroy'])->name('category.delete');
+	
+	Route::get('/katekoria/dodaj', [CategoryController::class, 'create'])->name('category.create')->middleware('can:isAdmin');
+	Route::post('/kategoria', [CategoryController::class, 'store'])->name('category.store')->middleware('can:isAdmin');
+	Route::get('/kategoria/edytuj/{category}', [CategoryController::class, 'edit'])->name('category.edit')->middleware('can:isAdmin');
+	Route::post('kategoria/{category}', [CategoryController::class, 'update'])->name('category.update')->middleware('can:isAdmin');
+	Route::delete('/kategoria/usun/{category}', [CategoryController::class, 'destroy'])->name('category.delete')->middleware('can:isAdmin');
 });

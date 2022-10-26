@@ -36,9 +36,11 @@
                             {{ Auth::user()->name }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @can('isAdmin')
                             <li>
                                 <a class="dropdown-item" href="{{ route('classifield.create') }}">{{ __('Add Classifield') }}</a>
                             </li>
+                            @endcan
                             <li>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();

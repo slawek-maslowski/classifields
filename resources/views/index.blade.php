@@ -20,26 +20,20 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        @guest
                         <th>{{ __('Category Name') }}</th>
                         <th>{{ __('Category Description') }}</th>
-                        @else
-                        <th>{{ __('Category Name') }}</th>
-                        <th>{{ __('Category Description') }}</th>
+                        @can('isadmin')
                         <th>{{ __('Action') }}</th>
-                        @endguest
+                        @endcan
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($categories as $category)
                         <tr>
                             <th scope="row">{{ $category->id }}</th>
-                            @guest
                             <td>{{ $category->title }}</td>
                             <td>{{ $category->description }}</td>
-                            @else
-                            <td>{{ $category->title }}</td>
-                            <td>{{ $category->description }}</td>
+                            @can('isAdmin')
                             <td>
                                 <button type="button" class="btn btn-secondary btn-floating" onclick="window.location='{{ route('category.edit', ['category' => $category->id]) }}';">
                                     <i class="fa-regular fa-pen-to-square"></i>
@@ -54,7 +48,7 @@
                                 </form>
 
                             </td>
-                            @endguest
+                            @endcan
                         </tr>
                     @endforeach
                 </tbody>
