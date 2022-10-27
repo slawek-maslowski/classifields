@@ -11,6 +11,11 @@
                         </div>
                         <div class="card-body">
                             <p class="card-text">{{ $classifield->description }}</p>
+                            <p>
+                                @if (count($classifield->attachments) >0)
+                                    <img class="img-thumbnail" style="height:100px;" src="{{ Storage::url($classifield->attachments[0]->path) }}" alt="">
+                                @endif
+                            </p>
                         </div>
                     </div>
                     <div class="mt-n4 pr-4 d-flex justify-content-end">

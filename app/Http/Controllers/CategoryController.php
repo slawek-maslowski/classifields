@@ -52,7 +52,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        $classifields = Classifield::with('Category')->where('category_id', $category->id)->get();
+        $classifields = Classifield::with(['Category', 'Attachments'])->where('category_id', $category->id)->get();
 
         return view('category.show', ['classifields' => $classifields]);
     }

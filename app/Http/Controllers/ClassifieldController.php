@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Classifield;
 use App\Http\Requests\StoreClassifieldRequest;
 use App\Http\Requests\UpdateClassifieldRequest;
+use App\Models\Attachment;
+use Illuminate\Support\Facades\Storage;
 
 class ClassifieldController extends Controller
 {
@@ -39,6 +41,16 @@ class ClassifieldController extends Controller
         $classifield = new Classifield($request->validated());
         $classifield->user_id = auth()->id();
         $classifield->save();
+        
+        if($request->attachment)
+        {
+            $path = $request->attachment->store('public/photos');
+            $attachment = new Attachment();
+            $attachment->path = $path;
+            $attachment->classifield_id = $classifield->id;
+
+            $attachment->save();
+        }
 
         return redirect()->route('home');
     }
@@ -51,7 +63,7 @@ class ClassifieldController extends Controller
      */
     public function show(Classifield $classifield)
     {
-        $classifields = Classifield::where('user_id', auth()->id())->get();
+        $classifields = Classifield::with('Attachments')->where('user_id', auth()->id())->get();
 
         return view('classifield.show', ['classifields' => $classifields]);
     }
@@ -79,7 +91,7 @@ class ClassifieldController extends Controller
         $classifield->fill($request->validated());
         $classifield->save();
 
-        return redirect()->route('home');
+        return redirect()->route('classifield.show');
     }
 
     /**
@@ -90,8 +102,15 @@ class ClassifieldController extends Controller
      */
     public function destroy(Classifield $classifield)
     {
+        $attachments = Attachment::where('classifield_id', $classifield->id)->get();
+
+        foreach ($attachments as $attachment) {
+            Storage::delete($attachment->path);
+        }
+        Attachment::where('classifield_id', $classifield->id)->delete();
+
         $classifield->delete();
 
-        return redirect()->route('home');
+        return redirect()->route('classifield.show');
     }
 }

@@ -26,7 +26,8 @@ class StoreClassifieldRequest extends FormRequest
         return [
             'category_id' => 'required',
             'title' => 'required|string|max:255',
-            'description' => 'required|string|max:1000'
+            'description' => 'required|string|max:1000',
+            'attachment' => 'file|max:2000'
         ];
     }
 }

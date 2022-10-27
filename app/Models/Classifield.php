@@ -14,6 +14,11 @@ class Classifield extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function attachments()
+    {
+        return $this->hasMany(Attachment::class);
+    }
+
     public $fillable = [
         'category_id',
         'user_id',

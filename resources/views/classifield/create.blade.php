@@ -9,7 +9,16 @@
     </div>
     <div class="row justify-content-center mt-5">
         <div class="col-md-8">
-            <form action="{{ route('classifield.store') }}" method="post">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            <form action="{{ route('classifield.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
 
                 <select class="form-select mb-4" aria-label="Default select example" name="category_id">
@@ -27,6 +36,9 @@
                     <textarea type="text" id="description" name="description" class="form-control" rows="5" /></textarea>
                     <label class="form-label" for="description">{{ __('Classifield Description') }}</label>
                 </div>
+
+                <label class="form-label" for="attachment">{{ __('Choose file') }}</label>
+                <input type="file" class="form-control mb-4" id="attachment" name="attachment" />
 
                 <button type="submit" class="btn btn-primary btn-block">{{ __('Add Classifield') }}</button>
             </form>
