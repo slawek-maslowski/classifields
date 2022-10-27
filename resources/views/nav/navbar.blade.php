@@ -41,6 +41,9 @@
                                 <a class="dropdown-item" href="{{ route('category.create') }}">{{ __('Add Category') }}</a>
                             </li>
                             @endcan
+                            <li class="nav-item">
+                                <a class="dropdown-item" href="{{ route('classifield.show') }}">{{ __('My Classifields') }}</a>
+                            </li>
                             <li>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();

@@ -36,6 +36,8 @@ Route::middleware('auth')->group(function() {
 	Route::post('/ogloszenie/dodaj', [ClassifieldController::class, 'store'])->name('classifield.store');
 	Route::get('/ogloszenie/edytuj/{classifield}', [ClassifieldController::class, 'edit'])->name('classifield.edit');
 	Route::post('/ogloszenie/{classifield}', [ClassifieldController::class, 'update'])->name('classifield.update');
+	Route::get('/ogloszenie/moje', [ClassifieldController::class, 'show'])->name('classifield.show');
+	Route::delete('/ogloszenie/usun/{classifield}', [ClassifieldController::class, 'destroy'])->name('classifield.delete');
 	
 });
 

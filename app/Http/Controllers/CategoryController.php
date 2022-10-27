@@ -38,7 +38,7 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        $category = new Category($request->all());
+        $category = new Category($request->validated());
         $category->save();
 
         return redirect()->route('home');
@@ -52,7 +52,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        $classifields = Classifield::where('category_id', $category->id)->get();
+        $classifields = Classifield::with('Category')->where('category_id', $category->id)->get();
 
         return view('category.show', ['classifields' => $classifields]);
     }
@@ -77,7 +77,7 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        $category->fill($request->all());
+        $category->fill($request->validated());
         $category->save();
 
         return redirect()->route('home');

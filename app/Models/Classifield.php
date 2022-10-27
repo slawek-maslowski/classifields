@@ -16,6 +16,7 @@ class Classifield extends Model
 
     public $fillable = [
         'category_id',
+        'user_id',
         'title',
         'description',
         'image_path'

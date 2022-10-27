@@ -36,7 +36,8 @@ class ClassifieldController extends Controller
      */
     public function store(StoreClassifieldRequest $request)
     {
-        $classifield = new Classifield($request->all());
+        $classifield = new Classifield($request->validated());
+        $classifield->user_id = auth()->id();
         $classifield->save();
 
         return redirect()->route('home');
@@ -50,7 +51,9 @@ class ClassifieldController extends Controller
      */
     public function show(Classifield $classifield)
     {
-        //
+        $classifields = Classifield::where('user_id', auth()->id())->get();
+
+        return view('classifield.show', ['classifields' => $classifields]);
     }
 
     /**
@@ -73,7 +76,7 @@ class ClassifieldController extends Controller
      */
     public function update(UpdateClassifieldRequest $request, Classifield $classifield)
     {
-        $classifield->fill($request->all());
+        $classifield->fill($request->validated());
         $classifield->save();
 
         return redirect()->route('home');
